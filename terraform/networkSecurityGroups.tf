@@ -29,9 +29,11 @@ resource "azurerm_network_security_group" "nsg1" {
     destination_address_prefix = "Internet"
   }
 
+/*
+ // Enable to allow access to the public IP via the internet.
   security_rule {
     name = "allowWWW"
-    priority = 1000
+    priority = 1002
     direction = "inbound"
     access = "Allow"
     protocol = "tcp"
@@ -40,10 +42,11 @@ resource "azurerm_network_security_group" "nsg1" {
     source_address_prefix = "Internet"
     destination_address_prefix = "VirtualNetwork"
   }
+*/
 
   security_rule {
     name = "denyInboundInet"
-    priority = 1001
+    priority = 1010
     direction = "inbound"
     access = "deny"
     protocol = "*"

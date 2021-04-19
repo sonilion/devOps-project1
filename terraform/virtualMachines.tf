@@ -8,7 +8,6 @@ data "azurerm_resource_group" "packer-images" {
 
 data "azurerm_image" "packerLinuxWebImage" {
   name = "packerUbuntuWebServer"
-//  resource_group_name = azurerm_resource_group.packer-images.name
   resource_group_name = data.azurerm_resource_group.packer-images.name
 }
 

@@ -12,11 +12,6 @@ resource "azurerm_virtual_network" "prod-vnet1" {
     address_prefix = "10.0.1.0/24"
   }
 
-  subnet {
-    name = "AzureBastionSubnet"
-    address_prefix = "10.0.2.224/27"
-  }
-
   tags = var.resource_tags
 }
 
@@ -29,7 +24,7 @@ resource "azurerm_public_ip" "prod-vnet1" {
   tags = var.resource_tags
 }
 
-// 2 NICs for the internal web VMs
+// NICs for the internal web VMs
 resource "azurerm_network_interface" "prod-vnet1" {
   count = var.numWebMachines
   name = "${var.prefix}-${format("%02d",count.index + 1)}-NIC"
