@@ -29,9 +29,9 @@ git clone https://github.com/sonilion/devOps-project1
 ```
 az group create -l westus2 -n packer_images
 ```
-5. Build linux web server packer image.  See variables section of packer/server.json if you created your resource group in step 4 elsewhere.
+5. Build linux web server packer image.  See variables section of server.json if you created your resource group in step 4 elsewhere.
 ```
-packer build packer/server.json
+packer build server.json
 ```
 6. Review terraform template variables.  From the devOps-project1 folder, navigate to the terraform directory.  
 
