@@ -31,13 +31,14 @@ az group create -l westus2 -n packer_images
 ```
 5. Build linux web server packer image.  See variables section of server.json if you created your resource group in step 4 elsewhere.
 ```
+cd terraform
 packer build server.json
 ```
 6. Review terraform template variables.  From the devOps-project1 folder, navigate to the terraform directory.  
 
 The configuration is broken up into a handful of configuration files for ease of management.  
 
-Text file: vars.tf contains various user managed values.
+Text file: var.tf contains various user managed values.
 
   * **prefix** : Prepended to some resource names being created via Terraform
   * **location** : The azure region that the terraform template creates resources in
@@ -48,17 +49,16 @@ Text file: vars.tf contains various user managed values.
 
 7. Initialize Terraform.  From the /devOps-project1/terraform directory
 ```
-cd terraform
 terraform init
 ```
 8. Create and review Terraform plan.  Terraform show output can be reviewed any time prior to actually applying the plan.
 ```
-terraform plan -out solution.plan
-terraform show "solution.plan"
+terraform plan -out Solution.plan
+terraform show "Solution.plan"
 ```
 9. Once you've confirmed the results, have terraform build the requested infrastructure.
 ```
-terraform apply "solution.plan"
+terraform apply "Solution.plan"
 ```
 10. Once completed, if desired, you can destroy the terraform managed infrastructure that was built.
 ```
